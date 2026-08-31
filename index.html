@@ -108,27 +108,27 @@ nav a:hover{color:var(--fg)}
 .mobile-menu .btn{margin-top:12px;width:100%}
 @media(max-width:480px){.logo small{display:none}.logo img{height:32px}}
 
-/* hero */
-.hero{position:relative;color:#fff;overflow:hidden;min-height:calc(100vh - 72px);display:flex;align-items:center}
-.hero-bg{position:absolute;inset:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover}
-.hero-bg::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0b0d1a 0%,rgba(11,13,26,.82) 30%,rgba(11,13,26,.4) 60%,rgba(11,13,26,.15) 100%);z-index:1}
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,13,26,.25) 0%,rgba(11,13,26,.5) 50%,rgba(11,13,26,.88) 100%);z-index:1}
-.hero .wrap{position:relative;z-index:2;padding:100px 0 80px}
-.hero-content{max-width:680px}
-.hero .eyebrow{color:rgba(255,255,255,.55)}
-.hero h1{font-size:clamp(38px,5.2vw,64px);margin-bottom:20px;color:#fff}
+/* hero — сетка: текст слева, фото справа (сварщик виден) */
+.hero{position:relative;color:#fff;min-height:calc(100vh - 72px);display:grid;grid-template-columns:1.02fr .98fr;overflow:hidden}
+.hero-left{position:relative;z-index:2;display:flex;align-items:center;background:linear-gradient(100deg,#0b0d1a 0%,#0d1020 70%,rgba(13,16,32,.96) 100%)}
+.hero-left .inner{width:min(100%,600px);padding:100px 48px 80px 0;margin-left:auto}
+.hero-right{position:relative;z-index:1;min-height:100%}
+.hero-right img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-right::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,13,26,.28) 0%,rgba(11,13,26,.05) 30%,transparent 55%);z-index:1}
+.hero .eyebrow{color:rgba(255,255,255,.6)}
+.hero h1{font-size:clamp(38px,5.2vw,62px);margin-bottom:20px;color:#fff}
 .hero h1 em{font-style:normal;color:#9aa0ff}
 html[data-theme="dark"] .hero h1 em{color:#a5a6ff}
 .hero-stat-num{font-family:var(--font-display);font-size:14px;color:#9aa0ff;font-weight:500;letter-spacing:.05em}
 html[data-theme="dark"] .hero-stat-num{color:#a5a6ff}
 html[data-theme="dark"] .logo img{filter:brightness(0) invert(1) contrast(1.05)}
-.hero .lead{font-size:16px;color:rgba(255,255,255,.62);max-width:500px;margin-bottom:36px;line-height:1.6}
+.hero .lead{font-size:16px;color:rgba(255,255,255,.66);max-width:500px;margin-bottom:36px;line-height:1.6}
 .hero-ctas{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:56px}
 .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(255,255,255,.1);padding-top:24px}
 .hero-stat{display:flex;align-items:center;gap:12px;padding:8px 16px;border-right:1px solid rgba(255,255,255,.08)}
 .hero-stat:last-child{border-right:0}
-.hero-stat-text{font-size:13px;color:rgba(255,255,255,.5)}
+.hero-stat-text{font-size:13px;color:rgba(255,255,255,.55)}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.hero-left .inner{padding:72px 24px;margin-left:0}.hero-right{min-height:340px;order:2}.hero-right img{position:relative;inset:auto}}
 @media(max-width:700px){.hero-stats{grid-template-columns:1fr 1fr}.hero-stat{border-right:0}}
 
 /* sections */
@@ -342,9 +342,8 @@ html.compare-open .demo-notice{display:none}
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <div class="hero-bg"><img src="img/hero.jpg" alt="Производство металлоконструкций Атлас-МК" fetchpriority="high" width="1600" height="717"></div>
-    <div class="wrap">
-      <div class="hero-content">
+    <div class="hero-left">
+      <div class="inner">
         <p class="eyebrow reveal">Производство металлоконструкций · Краснодар</p>
         <h1 class="reveal">Металлоконструкции<br>и металлоизделия<br><em>любой сложности</em></h1>
         <p class="lead reveal">Собственный цех 200 м²: проектируем, изготавливаем и монтируем конструкции для промышленных, коммерческих и частных объектов. Работаем по вашим чертежам.</p>
@@ -359,6 +358,9 @@ html.compare-open .demo-notice{display:none}
           <div class="hero-stat"><span class="hero-stat-num">04</span><span class="hero-stat-text">Гарантия 60 мес</span></div>
         </div>
       </div>
+    </div>
+    <div class="hero-right">
+      <img src="img/hero.jpg" alt="Производство металлоконструкций Атлас-МК" fetchpriority="high" width="1600" height="717">
     </div>
   </section>
 
