@@ -47,6 +47,7 @@ html[data-theme="dark"]{
   --on-accent:#0b0d13;
   --shadow:0 18px 50px -18px rgba(0,0,0,.6);
 }
+html{color-scheme:light}
 html[data-theme="dark"]{color-scheme:dark}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
@@ -88,11 +89,12 @@ nav{display:flex;gap:28px}
 nav a{font-size:13.5px;color:var(--muted);font-weight:500;transition:color .2s}
 nav a:hover{color:var(--fg)}
 @media(max-width:900px){nav{display:none}}
-.header-right{display:flex;align-items:center;gap:16px;margin-right:66px}
+.header-right{display:flex;align-items:center;gap:16px;margin-right:180px}
 .header-phone{font-family:var(--font-display);font-size:15px;color:var(--fg);font-weight:500;letter-spacing:.02em}
 @media(max-width:900px){.header-phone{display:none}}
 .header-right .btn-primary{font-size:13px;padding:11px 22px}
 @media(max-width:900px){.header-right .btn-primary{display:none}}
+@media(max-width:900px){.header-right{margin-right:130px}}
 .nav-toggle{display:none;width:44px;height:44px;align-items:center;justify-content:center;flex-direction:column;gap:5px;flex:none;touch-action:manipulation}
 .nav-toggle span{width:22px;height:2px;background:var(--fg);border-radius:2px;transition:transform .25s,opacity .25s}
 .nav-toggle.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -116,13 +118,16 @@ nav a:hover{color:var(--fg)}
 .hero-content{max-width:680px}
 .hero .eyebrow{color:rgba(255,255,255,.55)}
 .hero h1{font-size:clamp(38px,5.2vw,64px);margin-bottom:20px;color:#fff}
-.hero h1 em{font-style:normal;color:var(--accent)}
+.hero h1 em{font-style:normal;color:#9aa0ff}
+html[data-theme="dark"] .hero h1 em{color:#a5a6ff}
+.hero-stat-num{font-family:var(--font-display);font-size:14px;color:#9aa0ff;font-weight:500;letter-spacing:.05em}
+html[data-theme="dark"] .hero-stat-num{color:#a5a6ff}
+html[data-theme="dark"] .logo img{filter:brightness(0) invert(1) contrast(1.05)}
 .hero .lead{font-size:16px;color:rgba(255,255,255,.62);max-width:500px;margin-bottom:36px;line-height:1.6}
 .hero-ctas{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:56px}
 .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(255,255,255,.1);padding-top:24px}
 .hero-stat{display:flex;align-items:center;gap:12px;padding:8px 16px;border-right:1px solid rgba(255,255,255,.08)}
 .hero-stat:last-child{border-right:0}
-.hero-stat-num{font-family:var(--font-display);font-size:14px;color:var(--accent);font-weight:500;letter-spacing:.05em}
 .hero-stat-text{font-size:13px;color:rgba(255,255,255,.5)}
 @media(max-width:700px){.hero-stats{grid-template-columns:1fr 1fr}.hero-stat{border-right:0}}
 
@@ -139,7 +144,8 @@ nav a:hover{color:var(--fg)}
 .service-row__img{height:100%;min-height:300px;overflow:hidden}
 .service-row__img img{width:100%;height:100%;object-fit:cover}
 .service-row__body{padding:40px 40px 40px 0}
-.service-row__num{font-family:var(--font-display);font-size:48px;font-weight:600;color:var(--accent-soft);display:block;margin-bottom:8px;line-height:1;text-transform:uppercase}
+.service-row__num{font-family:var(--font-display);font-size:48px;font-weight:600;color:rgba(44,42,137,.18);display:block;margin-bottom:8px;line-height:1;text-transform:uppercase}
+html[data-theme="dark"] .service-row__num{color:rgba(123,120,212,.45)}
 .service-row__body h3{font-size:clamp(22px,2.5vw,28px);margin-bottom:14px;font-weight:600;text-transform:none;letter-spacing:0}
 .service-row__body p{font-size:15px;color:var(--muted);margin-bottom:20px;line-height:1.6}
 .service-row__list{list-style:none;margin-bottom:24px}
@@ -209,33 +215,64 @@ body{padding-bottom:0}
 [data-theme="dark"] .theme-toggle .ic-sun{display:block}
 [data-theme="dark"] .theme-toggle .ic-moon{display:none}
 
-/* compare button + overlay */
-.compare-btn{position:fixed;left:16px;bottom:16px;z-index:9998;display:flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;background:var(--surface);color:var(--fg);box-shadow:0 4px 20px rgba(0,0,0,.16),inset 0 0 0 1px var(--line);font-size:13px;font-weight:600;transition:transform .15s;touch-action:manipulation}
+/* compare button + overlay — кнопка рядом с темой вверху справа */
+.compare-btn{position:fixed;top:14px;right:72px;z-index:9998;display:inline-flex;align-items:center;gap:8px;padding:0 18px;height:46px;border-radius:999px;background:var(--surface);color:var(--fg);box-shadow:0 4px 20px rgba(0,0,0,.12),inset 0 0 0 1px var(--line);font-size:13px;font-weight:600;transition:transform .15s;touch-action:manipulation}
 .compare-btn:hover{transform:translateY(-2px)}
 .compare-btn svg{width:16px;height:16px;color:var(--accent)}
+.header-right{margin-right:130px}
+@media(max-width:900px){.header-right{margin-right:130px}}
+@media(max-width:640px){.compare-btn{right:72px;top:14px;padding:0 14px;font-size:12px;height:44px}}
+
 .compare-overlay{position:fixed;inset:0;z-index:9997;background:var(--bg);display:none}
 .compare-overlay.is-open{display:block}
-.compare-panel{position:absolute;left:0;top:0;bottom:0;width:50vw;border-right:1px solid var(--line);background:var(--surface);display:flex;flex-direction:column}
+.compare-panel{position:absolute;left:0;top:0;bottom:0;width:50vw;background:var(--surface);display:flex;flex-direction:column}
+.compare-panel::after{content:"";position:absolute;top:50%;right:-10px;width:20px;height:64px;background:var(--accent);border-radius:999px;transform:translateY(-50%);opacity:.9;box-shadow:0 2px 12px rgba(0,0,0,.2)}
+.compare-panel::before{content:"⋮";position:absolute;top:50%;right:-7px;transform:translateY(-50%);color:#fff;font-size:14px;letter-spacing:1px;z-index:1}
+.compare-resizer{position:absolute;left:50vw;top:0;bottom:0;width:14px;margin-left:-7px;cursor:ew-resize;z-index:10;display:flex;align-items:center;justify-content:center;touch-action:none}
+.compare-resizer::after{content:"";width:4px;height:100%;background:var(--accent);box-shadow:0 0 0 1px rgba(0,0,0,.1)}
+.compare-resizer::before{content:"⋮";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:20px;height:64px;background:var(--accent);border-radius:999px;display:grid;place-items:center;color:#fff;font-size:14px;letter-spacing:1px;box-shadow:0 2px 12px rgba(0,0,0,.2)}
 .compare-panel-header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--line-soft);flex-shrink:0}
 .compare-panel-header h5{font-family:var(--font-display);font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;color:var(--muted)}
 .compare-panel-header .close-btn{width:36px;height:36px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--line-soft);display:grid;place-items:center;font-size:20px;color:var(--muted)}
 .compare-panel-header .close-btn:hover{color:var(--fg)}
 .compare-panel iframe{flex:1;width:100%;border:0;background:#fff}
 .compare-panel-right{position:absolute;right:0;top:0;bottom:0;left:50vw;display:flex;flex-direction:column}
-.compare-panel-right .compare-panel-header{border-left:1px solid var(--line-soft)}
+.compare-panel-right .compare-panel-header{border-left:none}
 .compare-panel-right iframe{flex:1;width:100%;border:0;background:#fff}
 .compare-tabs{display:none;position:fixed;left:0;right:0;top:0;z-index:9998;background:var(--surface);border-bottom:1px solid var(--line-soft)}
 .compare-tabs button{flex:1;padding:14px;font-size:13px;font-weight:600;color:var(--muted);transition:color .2s,border-color .2s;border-bottom:2px solid transparent;background:none;font-family:var(--font-display);letter-spacing:.06em;text-transform:uppercase}
 .compare-tabs button.is-active{color:var(--accent);border-bottom-color:var(--accent)}
+.compare-overlay.is-open ~ .theme-toggle{opacity:0;pointer-events:none}
 @media(max-width:900px){
-  .compare-panel{width:100%;display:none}
+  .compare-panel{width:100%;display:none;border-right:none}
+  .compare-panel::after,.compare-panel::before{display:none}
   .compare-panel.is-active{display:flex}
   .compare-panel-right{display:none}
   .compare-panel-right.is-active{display:flex;position:absolute;left:0;right:0;top:0;bottom:0}
   .compare-tabs{display:flex}
   .compare-overlay.is-open .compare-tabs{display:flex}
 }
-@media(max-width:640px){.compare-btn{font-size:12px;padding:10px 16px;left:10px;bottom:10px}}
+
+/* demo-notice — маленький блок в конце как на референс-скрине */
+.demo-notice{padding:32px 0 8px}
+.demo-box{display:grid;grid-template-columns:.85fr 1.65fr;gap:32px;align-items:center;background:#0f1117;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:32px 32px;position:relative;overflow:hidden}
+.demo-box::before{content:"";position:absolute;inset:auto -20% -60% auto;width:60%;height:180%;background:radial-gradient(ellipse at 70% 50%,rgba(227,6,19,.18),transparent 60%);pointer-events:none}
+.demo-box h3{font-family:var(--font-display);font-size:clamp(28px,4vw,42px);line-height:.95;letter-spacing:-.03em;color:#fff;text-transform:uppercase}
+.demo-box h3 span{color:#e30613}
+.demo-box p{color:#9aa3b8;font-size:17px;line-height:1.5;position:relative}
+.demo-box p strong{color:#fff;font-weight:600}
+html.compare-open .demo-notice{display:none}
+@media(max-width:800px){.demo-box{grid-template-columns:1fr;gap:16px;padding:28px 22px}.demo-box p{font-size:16px}}
+
+/* popup — редизайн попапа оригинала (скидка 10%) */
+.popup{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;padding:20px}
+.popup.open{display:flex}
+.popup-backdrop{position:absolute;inset:0;background:rgba(11,13,19,.72);backdrop-filter:blur(6px)}
+.popup-box{position:relative;background:var(--surface);border-radius:20px;padding:36px 32px;max-width:480px;width:100%;box-shadow:0 24px 64px rgba(0,0,0,.28),inset 0 0 0 1px var(--line-soft);text-align:center}
+.popup-badge{display:inline-block;font-family:var(--font-display);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--accent);padding:6px 12px;border-radius:999px;margin-bottom:16px}
+.popup-box h3{font-size:26px;margin-bottom:10px}
+.popup-box p{color:var(--muted);font-size:14.5px;margin-bottom:24px;line-height:1.5}
+.popup-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:var(--surface-2);display:grid;place-items:center;color:var(--muted);font-size:20px}
 
 /* reveal */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
@@ -253,8 +290,8 @@ body{padding-bottom:0}
 </button>
 
 <button class="compare-btn" id="compareBtn" aria-label="Сравнить с оригиналом">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5v14M4 5l4 4M4 5l-4 4m20-4v14M20 5l-4 4M20 5l4 4"/></svg>
-  Сравнить с оригиналом
+  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5v14M4 5l4 4M4 5l-4 4m20-4v14M20 5l-4 4M20 5l4 4"/></svg>
+  Сравнить
 </button>
 
 <div class="compare-overlay" id="compareOverlay" role="dialog" aria-modal="true" aria-label="Сравнение сайтов">
@@ -262,6 +299,7 @@ body{padding-bottom:0}
     <button class="is-active" data-tab="original">Оригинал</button>
     <button data-tab="new">Новый дизайн</button>
   </div>
+  <div class="compare-resizer" id="cmpResizer" aria-hidden="true"></div>
   <div class="compare-panel is-active" id="panelOriginal">
     <div class="compare-panel-header">
       <h5>Оригинальный сайт</h5>
@@ -348,7 +386,7 @@ body{padding-bottom:0}
         </article>
         <article class="service-row reveal">
           <div class="service-row__body" style="padding-left:40px;padding-right:0">
-            <span class="service-row__num" style="color:rgba(44,42,137,.1)">02</span>
+            <span class="service-row__num">02</span>
             <h3>Металлоизделия на заказ</h3>
             <p>Изделия любой сложности по вашим чертежам, эскизам или фото. С полным циклом: от разработки документации до финишной обработки.</p>
             <ul class="service-row__list">
@@ -435,6 +473,16 @@ body{padding-bottom:0}
     </div>
   </section>
 
+  <!-- DEMO NOTICE — урезанная версия -->
+  <section class="demo-notice" aria-label="Урезанная демо-версия">
+    <div class="wrap">
+      <div class="demo-box">
+        <h3>ДАВАЙТЕ<br>СДЕЛАЕМ<br><span>ЧТО-ТО КРУТОЕ</span></h3>
+        <p><strong>Перед вами демо из 2–3 блоков — этого достаточно, чтобы оценить подачу и уровень проработки.</strong> Полный сайт соберём под вас: все разделы, каталог с фильтрами, интеграции с CRM и приёмом заявок, SEO и аналитика.</p>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer>
@@ -473,6 +521,17 @@ body{padding-bottom:0}
     </div>
   </div>
 </footer>
+
+<div class="popup" id="popup" role="dialog" aria-modal="true" aria-label="Акция">
+  <div class="popup-backdrop" id="popupBackdrop"></div>
+  <div class="popup-box">
+    <button class="popup-close" id="popupClose" aria-label="Закрыть">×</button>
+    <span class="popup-badge">Акция</span>
+    <h3>Скидка 10% на первый заказ</h3>
+    <p>Оставьте заявку сегодня — зафиксируем скидку на работы. Действует для новых клиентов Атлас-МК.</p>
+    <button class="btn btn-primary btn-block" data-scroll="#contacts" id="popupCta">Получить скидку</button>
+  </div>
+</div>
 
 <div class="mobile-bar">
   <a class="btn btn-outline" href="tel:+79182319944"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.8 2Z"/></svg> Позвонить</a>
@@ -526,15 +585,17 @@ body{padding-bottom:0}
     els.forEach(function(e){io.observe(e);});
   }else{els.forEach(function(e){e.classList.add('is-in');});}
 
-  // compare
+  // compare — скрываем дубль темы, утолщённый разделитель уже в CSS
   var overlay=document.getElementById('compareOverlay');
   var panelO=document.getElementById('panelOriginal');
   var panelN=document.getElementById('panelNew');
   var tabs=document.getElementById('compareTabs');
+  var themeBtn=document.querySelector('.theme-toggle');
+  var compareBtn=document.getElementById('compareBtn');
   // set new design iframe src
   document.querySelector('#panelNew iframe').src=window.location.href;
-  document.getElementById('compareBtn').addEventListener('click',function(){overlay.classList.add('is-open');html.style.overflow='hidden';});
-  function closeCompare(){overlay.classList.remove('is-open');html.style.overflow='';}
+  document.getElementById('compareBtn').addEventListener('click',function(){overlay.classList.add('is-open');html.classList.add('compare-open');html.style.overflow='hidden';themeBtn.style.opacity='0';themeBtn.style.pointerEvents='none';compareBtn.style.opacity='0';compareBtn.style.pointerEvents='none';});
+  function closeCompare(){overlay.classList.remove('is-open');html.classList.remove('compare-open');html.style.overflow='';themeBtn.style.opacity='';themeBtn.style.pointerEvents='';compareBtn.style.opacity='';compareBtn.style.pointerEvents='';}
   document.getElementById('compareClose').addEventListener('click',closeCompare);
   document.getElementById('compareClose2').addEventListener('click',closeCompare);
   // tab switching
@@ -548,6 +609,38 @@ body{padding-bottom:0}
   });
   // ESC close
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&overlay.classList.contains('is-open'))closeCompare();});
+  // draggable resizer
+  (function(){
+    var resizer=document.getElementById('cmpResizer');
+    if(!resizer) return;
+    var dragging=false;
+    function setPos(x){
+      var pct=Math.max(20,Math.min(80,x/window.innerWidth*100));
+      panelO.style.width=pct+'vw';
+      panelN.style.left=pct+'vw';
+      resizer.style.left=pct+'vw';
+    }
+    resizer.addEventListener('mousedown',function(e){dragging=true;e.preventDefault();panelO.querySelector('iframe').style.pointerEvents='none';panelN.querySelector('iframe').style.pointerEvents='none';});
+    resizer.addEventListener('touchstart',function(e){dragging=true;panelO.querySelector('iframe').style.pointerEvents='none';panelN.querySelector('iframe').style.pointerEvents='none';},{passive:false});
+    window.addEventListener('mousemove',function(e){if(!dragging||window.innerWidth<=900) return; setPos(e.clientX);});
+    window.addEventListener('touchmove',function(e){if(!dragging||window.innerWidth<=900) return; var t=e.touches[0]; if(t) setPos(t.clientX);},{passive:false});
+    function stopDrag(){dragging=false;panelO.querySelector('iframe').style.pointerEvents='';panelN.querySelector('iframe').style.pointerEvents='';}
+    window.addEventListener('mouseup',stopDrag);
+    window.addEventListener('touchend',stopDrag);
+  })();
+
+  // popup — редизайн попапа оригинала, показ через 7с один раз за сессию
+  (function(){
+    var p=document.getElementById('popup');
+    if(!p) return;
+    try{ if(sessionStorage.getItem('atlas_popup_shown')) return; }catch(e){}
+    var t=setTimeout(function(){ p.classList.add('open'); }, 7000);
+    function close(){ p.classList.remove('open'); try{sessionStorage.setItem('atlas_popup_shown','1');}catch(e){} }
+    document.getElementById('popupClose').addEventListener('click',close);
+    document.getElementById('popupBackdrop').addEventListener('click',close);
+    document.getElementById('popupCta').addEventListener('click',function(){ close(); var el=document.querySelector('#contacts'); if(el) el.scrollIntoView({behavior:'smooth'}); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&p.classList.contains('open')) close(); });
+  })();
 
   // form
   var form=document.getElementById('leadForm');
