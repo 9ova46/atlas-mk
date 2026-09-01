@@ -52,6 +52,7 @@ B2B: строительные/промышленные/коммерческие 
 
 ## Статус
 - [x] Ресёрч
-- [ ] Вёрстка
-- [ ] Проверка web-design-guidelines
-- [ ] Деплой на github.io
+- [x] Вёрстка
+- [x] Проверка web-design-guidelines
+- [x] Деплой на github.io → **https://9ova46.github.io/atlas-mk/**
+- Репо: https://github.com/9ova46/atlas-mk (публичный, ветка main)
