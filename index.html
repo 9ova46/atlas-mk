@@ -88,7 +88,7 @@ header{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--bg) 
 nav{display:flex;gap:28px}
 nav a{font-size:13.5px;color:var(--muted);font-weight:500;transition:color .2s}
 nav a:hover{color:var(--fg)}
-@media(max-width:900px){nav{display:none}}
+@media(max-width:900px){nav{display:none}.burger{display:flex;margin-right:66px}}
 .header-right{display:flex;align-items:center;gap:16px;margin-right:180px}
 .header-phone{font-family:var(--font-display);font-size:15px;color:var(--fg);font-weight:500;letter-spacing:.02em}
 @media(max-width:900px){.header-phone{display:none}}
@@ -128,7 +128,7 @@ html[data-theme="dark"] .logo img{filter:brightness(0) invert(1) contrast(1.05)}
 .hero-stat{display:flex;align-items:center;gap:12px;padding:8px 16px;border-right:1px solid rgba(255,255,255,.08)}
 .hero-stat:last-child{border-right:0}
 .hero-stat-text{font-size:13px;color:rgba(255,255,255,.6)}
-@media(max-width:700px){.hero-stats{grid-template-columns:1fr 1fr}.hero-stat{border-right:0}.hero .wrap{padding:64px 0 48px}}
+@media(max-width:700px){.hero-stats{grid-template-columns:1fr 1fr}.hero-stat{border-right:0}.hero .wrap{padding:64px 16px 48px;width:100%;box-sizing:border-box}}
 
 /* sections */
 .section{padding:96px 0}
@@ -200,7 +200,7 @@ footer{padding:48px 0 24px;border-top:1px solid var(--line-soft);background:var(
 
 /* mobile bar */
 .mobile-bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:80;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line-soft);padding:12px 14px calc(12px + env(safe-area-inset-bottom));gap:10px}
-@media(max-width:640px){.mobile-bar{display:flex}}
+@media(max-width:640px.hero .wrap{padding:48px 16px 32px;box-sizing:border-box}.hero h1{font-size:30px;line-height:1.05;letter-spacing:-.01em}.hero .lead{font-size:15px;line-height:1.55;max-width:100%}.hero-ctas{flex-direction:column;align-items:stretch;width:100%;gap:12px}.hero-ctas .btn{width:100%;justify-content:center}.hero-stats{grid-template-columns:1fr 1fr;gap:14px 10px;padding:18px 12px 0;margin-top:20px}.hero-stat{padding:6px 8px;flex-direction:row;align-items:baseline;gap:6px}.hero-stat b{font-size:18px}.hero-stat-text{font-size:10.5px;line-height:1.2}){.mobile-bar{display:flex}}
 .mobile-bar .btn{flex:1;padding:14px 16px;font-size:14px}
 body{padding-bottom:0}
 @media(max-width:640px){body{padding-bottom:76px}}
@@ -316,7 +316,7 @@ html.compare-open .compare-btn,html.compare-open .theme-toggle{opacity:0;pointer
     </div>
     <button class="nav-toggle" type="button" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
-</header>
+<button class="burger" aria-label="Меню" type="button"><span></span><span></span><span></span></button></div></header><nav class="mobile-nav" id="mobileNav"><a href="#main" data-mnav>Главная</a><a href="#services" data-mnav>Услуги</a><a href="#products" data-mnav>Товары</a><a href="#contacts" data-mnav>Контакты</a><button class="close" id="mobileClose" aria-label="Закрыть">×</button></nav></div>
 
 <nav class="mobile-menu" id="mobileMenu">
   <a href="#services" data-mnav>Услуги</a>
@@ -517,7 +517,7 @@ html.compare-open .compare-btn,html.compare-open .theme-toggle{opacity:0;pointer
   <button class="btn btn-primary" data-scroll="#contacts">Рассчитать стоимость</button>
 </div>
 
-<script>
+<script>document.addEventListener("DOMContentLoaded",function(){var b=document.querySelector(".burger");var m=document.getElementById("mobileNav");var c=document.getElementById("mobileClose");if(b&&m){b.addEventListener("click",function(){b.classList.toggle("open");m.classList.toggle("open")});if(c)c.addEventListener("click",function(){b.classList.remove("open");m.classList.remove("open")});m.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){b.classList.remove("open");m.classList.remove("open")})})}});
 (function(){
   var html=document.documentElement;
 
