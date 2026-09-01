@@ -88,7 +88,7 @@ header{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--bg) 
 nav{display:flex;gap:28px}
 nav a{font-size:13.5px;color:var(--muted);font-weight:500;transition:color .2s}
 nav a:hover{color:var(--fg)}
-@media(max-width:900px){}@media(max-width:900px){nav{display:none}
+@media(max-width:900px){nav{display:none}}
 .header-right{display:flex;align-items:center;gap:16px;margin-right:180px}
 .header-phone{font-family:var(--font-display);font-size:15px;color:var(--fg);font-weight:500;letter-spacing:.02em}
 @media(max-width:900px){.header-phone{display:none}}
@@ -100,7 +100,7 @@ nav a:hover{color:var(--fg)}
 .nav-toggle.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .nav-toggle.is-open span:nth-child(2){opacity:0}
 .nav-toggle.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-@media(max-width:900px){.nav-toggle{display:flex}}
+@media(max-width:900px){.nav-toggle{display:flex;margin-right:66px}}
 .mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line-soft);padding:16px 24px;z-index:99;flex-direction:column;gap:4px;max-height:calc(100vh - 72px);overflow-y:auto;overscroll-behavior:contain}
 .mobile-menu.is-open{display:flex}
 .mobile-menu a{font-size:16px;color:var(--muted);padding:12px 0;border-bottom:1px solid var(--line-soft)}
@@ -200,7 +200,6 @@ footer{padding:48px 0 24px;border-top:1px solid var(--line-soft);background:var(
 
 /* mobile bar */
 .mobile-bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:80;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line-soft);padding:12px 14px calc(12px + env(safe-area-inset-bottom));gap:10px}
-@media(max-width:640px.hero .wrap{padding:48px 16px 32px;box-sizing:border-box}.hero h1{font-size:30px;line-height:1.05;letter-spacing:-.01em}.hero .lead{font-size:15px;line-height:1.55;max-width:100%}.hero-ctas{flex-direction:column;align-items:stretch;width:100%;gap:12px}.hero-ctas .btn{width:100%;justify-content:center}.hero-stats{grid-template-columns:1fr 1fr;gap:14px 10px;padding:18px 12px 0;margin-top:20px}.hero-stat{padding:6px 8px;flex-direction:row;align-items:baseline;gap:6px}.hero-stat b{font-size:18px}.hero-stat-text{font-size:10.5px;line-height:1.2}){.mobile-bar{display:flex}}
 .mobile-bar .btn{flex:1;padding:14px 16px;font-size:14px}
 body{padding-bottom:0}
 @media(max-width:640px){.hero .wrap{padding:48px 16px 32px;box-sizing:border-box}.hero h1{font-size:30px;line-height:1.05;letter-spacing:-.01em}.hero .lead{font-size:15px;line-height:1.55;max-width:100%}.hero-ctas{flex-direction:column;align-items:stretch;width:100%;gap:12px}.hero-ctas .btn{width:100%;justify-content:center}.hero-stats{grid-template-columns:1fr 1fr;gap:14px 10px;padding:18px 12px 0;margin-top:20px}.hero-stat{padding:6px 8px;flex-direction:row;align-items:baseline;gap:6px}.hero-stat b{font-size:18px}.hero-stat-text{font-size:10.5px;line-height:1.2}}
@@ -215,40 +214,7 @@ body{padding-bottom:0}
 [data-theme="dark"] .theme-toggle .ic-sun{display:block}
 [data-theme="dark"] .theme-toggle .ic-moon{display:none}
 
-/* compare button + overlay — кнопка рядом с темой вверху справа */
-.compare-btn{position:fixed;top:14px;right:72px;z-index:9998;display:inline-flex;align-items:center;gap:8px;padding:0 18px;height:46px;border-radius:999px;background:var(--surface);color:var(--fg);box-shadow:0 4px 20px rgba(0,0,0,.12),inset 0 0 0 1px var(--line);font-size:13px;font-weight:600;transition:transform .15s;touch-action:manipulation}
-.compare-btn:hover{transform:translateY(-2px)}
-.compare-btn svg{width:16px;height:16px;color:var(--accent)}
-.header-right{margin-right:130px}
-@media(max-width:900px){.header-right{margin-right:130px}}
-@media(max-width:640px){.compare-btn{right:72px;top:14px;padding:0 14px;font-size:12px;height:44px}}
 
-.compare-overlay{position:fixed;inset:0;z-index:299;background:var(--bg);display:none}
-.compare-overlay.is-open{display:block}
-.compare-panel{position:absolute;left:0;top:0;bottom:0;width:50vw;background:var(--surface);display:flex;flex-direction:column}
-.compare-panel.right{left:50vw}
-.compare-panel iframe{flex:1;width:100%;border:0;background:#fff}
-.compare-bar{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid var(--border-soft)}
-.compare-bar .cap{font-family:monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.compare-bar .close-cmp{width:36px;height:36px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--border-soft);display:grid;place-items:center;font-size:20px;color:var(--muted)}
-.compare-resizer{position:absolute;left:50vw;top:0;bottom:0;width:16px;margin-left:-8px;cursor:ew-resize;z-index:10;display:flex;align-items:center;justify-content:center;touch-action:none}
-.compare-resizer::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:5px;background:var(--accent);transform:translateX(-50%)}
-.compare-resizer::before{content:"⋮";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:22px;height:68px;background:var(--accent);border-radius:999px;display:grid;place-items:center;color:#fff;font-size:15px}
-.compare-tabs{display:none;position:fixed;left:0;right:0;top:0;z-index:300;background:var(--surface);border-bottom:1px solid var(--border-soft)}
-.compare-tabs button{flex:1;padding:14px;font-size:13px;font-weight:600;color:var(--muted);border-bottom:2px solid transparent}
-.compare-tabs button.is-active{color:var(--accent);border-bottom-color:var(--accent)}
-@media(max-width:900px){.compare-panel,.compare-panel.right{width:100%;left:0;display:none}.compare-panel.is-active{display:flex}.compare-tabs{display:flex}.compare-resizer{display:none}}
-html.compare-open .compare-btn,html.compare-open .theme-toggle{opacity:0;pointer-events:none}
-.compare-overlay.is-open ~ .theme-toggle{opacity:0;pointer-events:none}
-@media(max-width:900px){
-  .compare-panel{width:100%;display:none;border-right:none}
-  .compare-panel::after,.compare-panel::before{display:none}
-  .compare-panel.is-active{display:flex}
-  .compare-panel-right{display:none}
-  .compare-panel-right.is-active{display:flex;position:absolute;left:0;right:0;top:0;bottom:0}
-  .compare-tabs{display:flex}
-  .compare-overlay.is-open .compare-tabs{display:flex}
-}
 
 /* popup — редизайн попапа оригинала (скидка 10%) */
 .popup{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;padding:20px}
@@ -262,9 +228,7 @@ html.compare-open .compare-btn,html.compare-open .theme-toggle{opacity:0;pointer
 .popup-box p{color:var(--muted);font-size:14.5px;margin-bottom:24px;line-height:1.5}
 .popup-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:var(--surface-2);display:grid;place-items:center;color:var(--muted);font-size:20px}
 
-.burger{display:none;width:44px;height:44px;flex-direction:column;gap:5px;align-items:center;justify-content:center;border-radius:10px;box-shadow:inset 0 0 0 1px var(--border);background:var(--surface);color:var(--fg)}.burger span{width:18px;height:2px;background:currentColor;border-radius:2px;transition:.2s}.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.burger.open span:nth-child(2){opacity:0}.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}.mobile-nav{position:fixed;inset:0;z-index:90;background:var(--bg);display:flex;flex-direction:column;justify-content:center;gap:6px;padding:40px;opacity:0;pointer-events:none;transition:opacity .25s}.mobile-nav.open{opacity:1;pointer-events:auto}.mobile-nav a{font-size:24px;font-weight:700;color:var(--fg);padding:14px 0;border-bottom:1px solid var(--border-soft)}.mobile-nav .close{position:absolute;top:22px;right:22px;font-size:32px;color:var(--muted);background:transparent;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;cursor:pointer}
-@media(max-width:900px){.burger{display:flex;margin-right:66px}}
-/* reveal */
+.mobile-nav{position:fixed;inset:0;z-index:10001;background:var(--bg);display:flex;flex-direction:column;justify-content:center;gap:6px;padding:40px;opacity:0;pointer-events:none;transition:opacity .25s}.mobile-nav.open{opacity:1;pointer-events:auto}.mobile-nav a{font-size:24px;font-weight:700;color:var(--fg);padding:14px 0;border-bottom:1px solid var(--border-soft)}.mobile-nav .close{position:absolute;top:22px;right:22px;font-size:32px;color:var(--muted);background:transparent;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;cursor:pointer}/* reveal */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
 .reveal.is-in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
@@ -279,32 +243,9 @@ html.compare-open .compare-btn,html.compare-open .theme-toggle{opacity:0;pointer
   <svg aria-hidden="true" class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13.5A8 8 0 0 1 10.5 4a7.5 7.5 0 1 0 9.5 9.5Z"/></svg>
 </button>
 
-<button class="compare-btn" id="compareBtn" aria-label="Сравнить с оригиналом">
-  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5v14M4 5l4 4M4 5l-4 4m20-4v14M20 5l-4 4M20 5l4 4"/></svg>
-  Сравнить
-</button>
 
-<div class="compare-overlay" id="compareOverlay" role="dialog" aria-modal="true" aria-label="Сравнение сайтов">
-  <div class="compare-tabs" id="compareTabs">
-    <button class="is-active" data-tab="original">Оригинал</button>
-    <button data-tab="new">Новый дизайн</button>
-  </div>
-  <div class="compare-resizer" id="cmpResizer" aria-hidden="true"></div>
-  <div class="compare-panel is-active" id="panelOriginal">
-    <div class="compare-panel-header">
-      <h5>Оригинальный сайт</h5>
-      <button class="close-btn" id="compareClose" aria-label="Закрыть сравнение">×</button>
-    </div>
-    <iframe src="https://atlas-mk.ru/" loading="lazy" title="Оригинальный сайт Атлас-МК" sandbox="allow-scripts allow-same-origin"></iframe>
-  </div>
-  <div class="compare-panel-right" id="panelNew">
-    <div class="compare-panel-header">
-      <h5>Новый дизайн</h5>
-      <button class="close-btn" id="compareClose2" aria-label="Закрыть сравнение">×</button>
-    </div>
-    <iframe src="" loading="lazy" title="Новый дизайн Атлас-МК"></iframe>
-  </div>
-</div>
+
+
 
 <header>
   <div class="wrap header-inner">
@@ -319,14 +260,16 @@ html.compare-open .compare-btn,html.compare-open .theme-toggle{opacity:0;pointer
     </div>
     <button class="nav-toggle" type="button" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
-<button class="burger" aria-label="Меню" type="button"><span></span><span></span><span></span></button></div></header><nav class="mobile-nav" id="mobileNav"><a href="#main" data-mnav>Главная</a><a href="#services" data-mnav>Услуги</a><a href="#products" data-mnav>Товары</a><a href="#contacts" data-mnav>Контакты</a><button class="close" id="mobileClose" aria-label="Закрыть">×</button></nav></div>
+</header>
 
-<nav class="mobile-menu" id="mobileMenu">
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#main" data-mnav>Главная</a>
   <a href="#services" data-mnav>Услуги</a>
   <a href="#contacts" data-mnav>Контакты</a>
-  <a href="tel:+79182319944" style="color:var(--accent)">+7 (918) 231-99-44</a>
-  <button class="btn btn-primary" data-scroll="#contacts" data-mnav>Рассчитать стоимость</button>
+  <button class="close" id="mobileClose" aria-label="Закрыть">×</button>
 </nav>
+
+
 
 <main id="main">
 
@@ -520,21 +463,40 @@ html.compare-open .compare-btn,html.compare-open .theme-toggle{opacity:0;pointer
   <button class="btn btn-primary" data-scroll="#contacts">Рассчитать стоимость</button>
 </div>
 
-<script>document.addEventListener("DOMContentLoaded",function(){var b=document.querySelector(".burger");var m=document.getElementById("mobileNav");var c=document.getElementById("mobileClose");if(b&&m){b.addEventListener("click",function(){b.classList.toggle("open");m.classList.toggle("open")});if(c)c.addEventListener("click",function(){b.classList.remove("open");m.classList.remove("open")});m.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){b.classList.remove("open");m.classList.remove("open")})})}});
+<script>
 (function(){
   var html=document.documentElement;
 
   // theme
-  function applyTheme(t){
-    html.setAttribute('data-theme',t);
+  function applyTheme(th){
+    html.setAttribute('data-theme',th);
     var meta=document.querySelector('meta[name="theme-color"]');
-    if(meta)meta.setAttribute('content',t==='dark'?'#0b0d13':'#f4f5f7');
-    try{localStorage.setItem('atlas-theme',t);}catch(e){}
+    if(meta)meta.setAttribute('content',th==='dark'?'#0b0d13':'#f4f5f7');
+    try{localStorage.setItem('atlas-theme',th);}catch(e){}
   }
   try{applyTheme(localStorage.getItem('atlas-theme')||'light');}catch(e){applyTheme('light');}
-  document.querySelector('.theme-toggle').addEventListener('click',function(){
+  var themeBtn=document.querySelector('.theme-toggle');
+  if(themeBtn)themeBtn.addEventListener('click',function(){
     applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
   });
+
+  // mobile menu: nav-toggle (burger) + #mobileNav
+  var toggle=document.querySelector('.nav-toggle');
+  var menu=document.getElementById('mobileNav');
+  var mclose=document.getElementById('mobileClose');
+  function closeMobile(){
+    if(toggle){toggle.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');}
+    if(menu){menu.classList.remove('open');}
+  }
+  if(toggle&&menu){
+    toggle.addEventListener('click',function(){
+      var open=toggle.classList.toggle('is-open');
+      menu.classList.toggle('open',open);
+      toggle.setAttribute('aria-expanded',open?'true':'false');
+    });
+    menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMobile);});
+  }
+  if(mclose)mclose.addEventListener('click',closeMobile);
 
   // smooth scroll
   document.querySelectorAll('[data-scroll]').forEach(function(b){
@@ -545,18 +507,7 @@ html.compare-open .compare-btn,html.compare-open .theme-toggle{opacity:0;pointer
     });
   });
 
-  // mobile menu
-  var toggle=document.querySelector('.nav-toggle');
-  var menu=document.getElementById('mobileMenu');
-  function closeMobile(){toggle.classList.remove('is-open');menu.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');}
-  toggle.addEventListener('click',function(){
-    var open=toggle.classList.toggle('is-open');
-    menu.classList.toggle('is-open',open);
-    toggle.setAttribute('aria-expanded',open?'true':'false');
-  });
-  document.querySelectorAll('[data-mnav]').forEach(function(a){a.addEventListener('click',closeMobile);});
-
-  // reveal
+  // reveal + fallback (критический баг: IO может не сработать — таймаут-страховка)
   var els=document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(entries){
@@ -565,82 +516,44 @@ html.compare-open .compare-btn,html.compare-open .theme-toggle{opacity:0;pointer
       });
     },{threshold:.12});
     els.forEach(function(e){io.observe(e);});
+    setTimeout(function(){els.forEach(function(e){e.classList.add('is-in');});},800);
   }else{els.forEach(function(e){e.classList.add('is-in');});}
 
-  // compare — скрываем дубль темы, утолщённый разделитель уже в CSS
-  var overlay=document.getElementById('compareOverlay');
-  var panelO=document.getElementById('panelOriginal');
-  var panelN=document.getElementById('panelNew');
-  var tabs=document.getElementById('compareTabs');
-  var themeBtn=document.querySelector('.theme-toggle');
-  var compareBtn=document.getElementById('compareBtn');
-  // set new design iframe src
-  document.querySelector('#panelNew iframe').src=window.location.href;
-  document.getElementById('compareBtn').addEventListener('click',function(){overlay.classList.add('is-open');html.classList.add('compare-open');html.style.overflow='hidden';themeBtn.style.opacity='0';themeBtn.style.pointerEvents='none';compareBtn.style.opacity='0';compareBtn.style.pointerEvents='none';});
-  function closeCompare(){overlay.classList.remove('is-open');html.classList.remove('compare-open');html.style.overflow='';themeBtn.style.opacity='';themeBtn.style.pointerEvents='';compareBtn.style.opacity='';compareBtn.style.pointerEvents='';}
-  document.getElementById('compareClose').addEventListener('click',closeCompare);
-  document.getElementById('compareClose2').addEventListener('click',closeCompare);
-  // tab switching
-  tabs.querySelectorAll('button').forEach(function(b){
-    b.addEventListener('click',function(){
-      tabs.querySelectorAll('button').forEach(function(x){x.classList.remove('is-active');});
-      b.classList.add('is-active');
-      panelO.classList.toggle('is-active',b.getAttribute('data-tab')==='original');
-      panelN.classList.toggle('is-active',b.getAttribute('data-tab')==='new');
-    });
-  });
-  // ESC close
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&overlay.classList.contains('is-open'))closeCompare();});
-  // draggable resizer
-  (function(){
-    var resizer=document.getElementById('cmpResizer');
-    if(!resizer) return;
-    var dragging=false;
-    function setPos(x){
-      var pct=Math.max(20,Math.min(80,x/window.innerWidth*100));
-      panelO.style.width=pct+'vw';
-      panelN.style.left=pct+'vw';
-      resizer.style.left=pct+'vw';
+  // popup — показ через 7с один раз за сессию
+  var p=document.getElementById('popup');
+  if(p){
+    var shown=false;
+    try{shown=!!sessionStorage.getItem('atlas_popup_shown');}catch(e){}
+    if(!shown){
+      var tm=setTimeout(function(){p.classList.add('open');},7000);
     }
-    resizer.addEventListener('mousedown',function(e){dragging=true;e.preventDefault();panelO.querySelector('iframe').style.pointerEvents='none';panelN.querySelector('iframe').style.pointerEvents='none';});
-    resizer.addEventListener('touchstart',function(e){dragging=true;panelO.querySelector('iframe').style.pointerEvents='none';panelN.querySelector('iframe').style.pointerEvents='none';},{passive:false});
-    window.addEventListener('mousemove',function(e){if(!dragging||window.innerWidth<=900) return; setPos(e.clientX);});
-    window.addEventListener('touchmove',function(e){if(!dragging||window.innerWidth<=900) return; var t=e.touches[0]; if(t) setPos(t.clientX);},{passive:false});
-    function stopDrag(){dragging=false;panelO.querySelector('iframe').style.pointerEvents='';panelN.querySelector('iframe').style.pointerEvents='';}
-    window.addEventListener('mouseup',stopDrag);
-    window.addEventListener('touchend',stopDrag);
-  })();
-
-  // popup — редизайн попапа оригинала, показ через 7с один раз за сессию
-  (function(){
-    var p=document.getElementById('popup');
-    if(!p) return;
-    try{ if(sessionStorage.getItem('atlas_popup_shown')) return; }catch(e){}
-    var t=setTimeout(function(){ p.classList.add('open'); }, 7000);
-    function close(){ p.classList.remove('open'); try{sessionStorage.setItem('atlas_popup_shown','1');}catch(e){} }
-    document.getElementById('popupClose').addEventListener('click',close);
-    document.getElementById('popupBackdrop').addEventListener('click',close);
-    document.getElementById('popupCta').addEventListener('click',function(){ close(); var el=document.querySelector('#contacts'); if(el) el.scrollIntoView({behavior:'smooth'}); });
-    document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&p.classList.contains('open')) close(); });
-  })();
+    function closePopup(){p.classList.remove('open');try{sessionStorage.setItem('atlas_popup_shown','1');}catch(e){}}
+    var pc=document.getElementById('popupClose');if(pc)pc.addEventListener('click',closePopup);
+    var pb=document.getElementById('popupBackdrop');if(pb)pb.addEventListener('click',closePopup);
+    var pcta=document.getElementById('popupCta');
+    if(pcta)pcta.addEventListener('click',function(){closePopup();var el=document.querySelector('#contacts');if(el)el.scrollIntoView({behavior:'smooth'});});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&p.classList.contains('open'))closePopup();});
+  }
 
   // form
   var form=document.getElementById('leadForm');
   var formOk=document.getElementById('formOk');
-  var formCard=document.getElementById('formCard');
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    var name=form.querySelector('#f-name'),phone=form.querySelector('#f-phone');
-    var nf=name.closest('.field'),pf=phone.closest('.field');
-    nf.classList.remove('invalid');pf.classList.remove('invalid');
-    var valid=true;
-    if(!name.value.trim()){nf.classList.add('invalid');valid=false;}
-    if(phone.value.replace(/[^\d+]/g,'').length<10){pf.classList.add('invalid');valid=false;}
-    if(!valid){var fe=form.querySelector('.field.invalid input,.field.invalid textarea');if(fe)fe.focus();return;}
-    form.style.display='none';formOk.style.display='block';
-  });
-  ['#f-name','#f-phone'].forEach(function(s){form.querySelector(s).addEventListener('input',function(){this.closest('.field').classList.remove('invalid');});});
+  if(form&&formOk){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var name=form.querySelector('#f-name'),phone=form.querySelector('#f-phone');
+      var nf=name.closest('.field'),pf=phone.closest('.field');
+      nf.classList.remove('invalid');pf.classList.remove('invalid');
+      var valid=true;
+      if(!name.value.trim()){nf.classList.add('invalid');valid=false;}
+      if(phone.value.replace(/[^\d+]/g,'').length<10){pf.classList.add('invalid');valid=false;}
+      if(!valid){var fe=form.querySelector('.field.invalid input,.field.invalid textarea');if(fe)fe.focus();return;}
+      form.style.display='none';formOk.style.display='block';
+    });
+    ['#f-name','#f-phone'].forEach(function(s){var inp=form.querySelector(s);if(inp)inp.addEventListener('input',function(){this.closest('.field').classList.remove('invalid');});});
+  }
 })();
+</script>
 </script>
 </body>
 </html>
