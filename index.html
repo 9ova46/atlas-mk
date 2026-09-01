@@ -88,7 +88,7 @@ header{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--bg) 
 nav{display:flex;gap:28px}
 nav a{font-size:13.5px;color:var(--muted);font-weight:500;transition:color .2s}
 nav a:hover{color:var(--fg)}
-@media(max-width:900px){nav{display:none}.burger{display:flex;margin-right:66px}}
+@media(max-width:900px){}@media(max-width:900px){nav{display:none}
 .header-right{display:flex;align-items:center;gap:16px;margin-right:180px}
 .header-phone{font-family:var(--font-display);font-size:15px;color:var(--fg);font-weight:500;letter-spacing:.02em}
 @media(max-width:900px){.header-phone{display:none}}
@@ -262,6 +262,8 @@ html.compare-open .compare-btn,html.compare-open .theme-toggle{opacity:0;pointer
 .popup-box p{color:var(--muted);font-size:14.5px;margin-bottom:24px;line-height:1.5}
 .popup-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:var(--surface-2);display:grid;place-items:center;color:var(--muted);font-size:20px}
 
+.burger{display:none;width:44px;height:44px;flex-direction:column;gap:5px;align-items:center;justify-content:center;border-radius:10px;box-shadow:inset 0 0 0 1px var(--border);background:var(--surface);color:var(--fg)}.burger span{width:18px;height:2px;background:currentColor;border-radius:2px;transition:.2s}.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.burger.open span:nth-child(2){opacity:0}.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}.mobile-nav{position:fixed;inset:0;z-index:90;background:var(--bg);display:flex;flex-direction:column;justify-content:center;gap:6px;padding:40px;opacity:0;pointer-events:none;transition:opacity .25s}.mobile-nav.open{opacity:1;pointer-events:auto}.mobile-nav a{font-size:24px;font-weight:700;color:var(--fg);padding:14px 0;border-bottom:1px solid var(--border-soft)}.mobile-nav .close{position:absolute;top:22px;right:22px;font-size:32px;color:var(--muted);background:transparent;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;cursor:pointer}
+@media(max-width:900px){.burger{display:flex;margin-right:66px}}
 /* reveal */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
 .reveal.is-in{opacity:1;transform:none}
